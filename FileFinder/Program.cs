@@ -12,6 +12,7 @@ namespace FileFinder
             Finder finder = new Finder();
             finder.FileFound += FinderEventHandler;
             finder.ShowFileName(finder.GetFiles(path));
+            finder.FileFound -= FinderEventHandler;
         }
 
         public static void FinderEventHandler(object sender, FileArgs fileArgs)
