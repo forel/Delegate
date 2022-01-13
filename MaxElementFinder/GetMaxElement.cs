@@ -7,6 +7,12 @@ namespace MaxElementFinder
     {
         public static T GetMax<T>(this IEnumerable e, Func<T, float> getValue) where T : class
         {
+            //Проверка, что коллекция не null или не пустая
+            if (e == null || e.GetEnumerator() == null)
+            {
+                throw new ArgumentNullException("e");
+            }
+
             var elements = e.GetEnumerator();
             elements.MoveNext();
 
